@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import  * as dotenv from 'dotenv';
+import { Venda, Compra, Produto, ItemVenda, ItemCompra } from './models';
+import { VendaModule, CompraModule, ProdutoModule, ItemVendaModule, ItemCompraModule } from './modules';
 
 dotenv.config();
 
@@ -13,9 +15,14 @@ dotenv.config();
       username: process.env.DB_USER || 'postgres',
       password: process.env.DB_PASS || 'admin',
       database: process.env.DB_NAME || 'desafio_hubbi',
-      entities: [],
+      entities: [Venda, Compra, Produto, ItemVenda, ItemCompra],
       synchronize: true,
     }),
+    VendaModule,
+    CompraModule,
+    ProdutoModule,
+    ItemVendaModule,
+    ItemCompraModule,
   ],
 })
 export class AppModule {}
