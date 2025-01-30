@@ -5,6 +5,10 @@ import { CreateItemCompraDto } from './create-item-compra.dto';
 export class CreateCompraDto {
   @IsNumber()
   @IsNotEmpty()
+  vendaId: number;
+  
+  @IsNumber()
+  @IsNotEmpty()
   valorTotal: number;
 
   @ValidateNested({ each: true })

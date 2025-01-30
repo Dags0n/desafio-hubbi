@@ -5,6 +5,10 @@ import { CreateItemCompraDto } from './create-item-compra.dto';
 export class UpdateCompraDto {
   @IsOptional()
   @IsNumber()
+  vendaId?: number;
+
+  @IsOptional()
+  @IsNumber()
   valorTotal?: number;
 
   @IsOptional()
